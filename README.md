@@ -57,7 +57,18 @@ Middleware::Runner#call (/home/user/project/shared/bundle/ruby/2.1.0/gems/middle
   callees (6123 total):
     6089  (   99.4%)  ThinkingSphinx::Middlewares::StaleIdFilter#call
       34  (    0.6%)  ThinkingSphinx::Middlewares::SphinxQL#call
-  code: ...
+  code:
+            |     1  | module Middleware
+            |     2  |   # This is a basic runner for middleware stacks. This runner does
+            |     3  |   # the default expected behavior of running the middleware stacks
+            |     4  |   # in order, then reversing the order.
+            |     5  |   class Runner
+            |     6  |     # A middleware which does nothing
+            |     7  |     EMPTY_MIDDLEWARE = lambda { |env| }
+            |     8  |
+            |     9  |     # Build a new middleware runner with the given middleware
+            |    10  |     # stack.
+  ...
 ```
 
 All of configuration options are available as cli arguments and will override file defined options
