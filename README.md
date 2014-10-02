@@ -9,7 +9,7 @@ And you want to copy dump on your local machine and read'em carefully in quiet p
 So, what happend if you do so? Something like this:
 
 ```bash
-stackprof --method Middleware::Runner#call tmp/stackprof/stackprof-wall-14962-1412161559.dump
+$ stackprof --method Middleware::Runner#call tmp/stackprof/stackprof-wall-14962-1412161559.dump
 Middleware::Runner#call (/home/user/project/shared/bundle/ruby/2.1.0/gems/middleware-0.1.0/lib/middleware/runner.rb:27)
   samples:     0 self (0.0%)  /   6123 total (70.7%)
   callers:
@@ -18,7 +18,8 @@ Middleware::Runner#call (/home/user/project/shared/bundle/ruby/2.1.0/gems/middle
     6089  (   99.4%)  ThinkingSphinx::Middlewares::StaleIdFilter#call
       34  (    0.6%)  ThinkingSphinx::Middlewares::SphinxQL#call
   code:
-/Users/me/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/stackprof-0.2.7/lib/stackprof/report.rb:347:in `readlines': No such file or directory @ rb_sysopen - /home/user/project/shared/bundle/ruby/2.1.0/gems/middleware-0.1.0/lib/middleware/runner.rb (Errno::ENOENT)
+/Users/me/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/stackprof-0.2.7/lib/stackprof/report.rb:347:in `readlines':
+No such file or directory @ rb_sysopen - /home/user/project/shared/bundle/ruby/2.1.0/gems/middleware-0.1.0/lib/middleware/runner.rb (Errno::ENOENT)
 	from /Users/me/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/stackprof-0.2.7/lib/stackprof/report.rb:347:in `source_display'
 	from /Users/me/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/stackprof-0.2.7/lib/stackprof/report.rb:265:in `block in print_method'
 	from /Users/me/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/stackprof-0.2.7/lib/stackprof/report.rb:238:in `each'
