@@ -1,6 +1,6 @@
-require 'erb'
-require 'optparse'
-require 'shellwords'
+require "erb"
+require "optparse"
+require "shellwords"
 
 module StackProf
   module Local
@@ -20,10 +20,16 @@ module StackProf
 
       def parser
         OptionParser.new do |parser|
-          parser.on('--remote-gems PATH', String) { |path| @remote_gems = path }
-          parser.on('--remote-project PATH', String) { |path| @remote_project = path }
-          parser.on('--local-gems PATH', String) { |path| @local_gems = path }
-          parser.on('--local-project PATH', String) { |path| @local_project = path }
+          parser.on("--remote-gems PATH", String) do |path|
+            @remote_gems = regexpify(path)
+          end
+
+          parser.on("--remote-project PATH", String) do |path|
+            @remote_project = regexpify(path)
+          end
+
+          parser.on("--local-gems PATH", String) { |path| @local_gems = path }
+          parser.on("--local-project PATH", String) { |path| @local_project = path }
         end
       end
 
@@ -34,6 +40,10 @@ module StackProf
 
       def options_file_as_erb_string(path)
         ERB.new(File.read(path), nil, ERB_EOUTVAR).result(binding)
+      end
+
+      def regexpify(expression)
+        Regexp === expression ? expression : /#{expression}/
       end
     end
   end

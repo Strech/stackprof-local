@@ -13,7 +13,7 @@ module StackProf
     end
 
     def localize(file)
-      if file.include?(configuration.remote_gems)
+      if configuration.remote_gems.match(file)
         to_local_gems(file)
       else
         to_local_project(file)

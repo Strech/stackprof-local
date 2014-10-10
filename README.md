@@ -77,6 +77,14 @@ All of configuration options are available as cli arguments and will override fi
 $ stackprof-local-cli --remote-gems '/path/to/gems' tmp/stackprof/stackprof-wall-14962-1412161559.dump
 ```
 
+Options with `--remote-` prefix allowed to define as regular expressions
+
+*Notice: escape the special chars with double backslash*
+
+```
+$ stackprof-local-cli --remote-project '/path/to/project/\\d{10}' tmp/stackprof/stackprof-wall-14962-1412161559.dump
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
