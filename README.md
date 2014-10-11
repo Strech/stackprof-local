@@ -79,7 +79,7 @@ $ stackprof-local-cli --remote-gems '/path/to/gems' tmp/stackprof/stackprof-wall
 
 Options with `--remote-` prefix allowed to define as regular expressions
 
-*Notice: escape the special chars with double backslash*
+*Notice: escape the backslash char with other backslash – i.e. use double backslash*
 
 ```
 $ stackprof-local-cli --remote-project '/path/to/project/\\d{10}' tmp/stackprof/stackprof-wall-14962-1412161559.dump
